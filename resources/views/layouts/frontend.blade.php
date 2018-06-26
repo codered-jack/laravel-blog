@@ -124,21 +124,7 @@
 
 <!-- Overlay Search -->
 
-<div class="overlay_search">
-    <div class="container">
-        <div class="row">
-            <div class="form_search-wrap">
-                <form>
-                    <input class="overlay_search-input" placeholder="Type and hit Enter..." type="text">
-                    <a href="#" class="overlay_search-close">
-                        <span></span>
-                        <span></span>
-                    </a>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+@include('includes.search')
 
 <!-- End Overlay Search -->
 
@@ -158,5 +144,6 @@
 
 <!-- ...end JS Script -->
 
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b325dabab60202a"></script> 
 </body>
 </html>

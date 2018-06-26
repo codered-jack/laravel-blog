@@ -9,7 +9,7 @@ class Post extends Model
 	use SoftDeletes;
 	
 	protected $fillable=[
-		'title','content','category_id','featured','slug'
+		'title','content','category_id','featured','slug','user_id'
 	];
 
 	public function getFeaturedAttribute($featured)
@@ -28,4 +28,11 @@ class Post extends Model
     {
     	return $this->belongsToMany('App\Tag');
     }
+
+      public function user()
+    {
+    	return $this->belongsTo('App\User');
+    }
+
+
 }

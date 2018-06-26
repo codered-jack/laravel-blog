@@ -31,6 +31,17 @@ Route::get('/tag/{id}', [
 	'as'=>'tag.single'
 ]);
 
+Route::get('/results', function(){
+	$posts=\App\Post::where('title','like','%'.request('query').'%')->get();
+
+	return view('results')->with('posts',$posts)
+							->with('title','Search Results :'.request('query'))
+    							->with('settings',\App\Setting::first())
+    							->with('categories',\App\Category::take(5)->get())
+    							->with('query',request('query'));
+});
+
+
 
 
 Auth::routes();
@@ -39,7 +50,7 @@ Auth::routes();
 
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
 
-	Route::get('/home', [
+	Route::get('/dashboard', [
 		'uses'=>'HomeController@index',
 		'as'=>'home'
 	]);
